@@ -1,11 +1,11 @@
-'use strict'
-const path = require('path')
+
+const path = require('path');
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const port = 7104 // dev port
+const port = 7104; // dev port
 
 module.exports = {
   /**
@@ -32,15 +32,16 @@ module.exports = {
     // host: '0.0.0.0',
     hot: true,
     disableHostCheck: true,
-    port: port,
+    port,
     overlay: {
       warnings: false,
       errors: true
     },
     headers: {
-      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Origin': '*',
     }
   },
+  // 自定义webpack配置
   configureWebpack: {
     // name: name,
     resolve: {

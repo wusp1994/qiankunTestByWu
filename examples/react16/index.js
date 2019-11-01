@@ -20,5 +20,3 @@ export async function mount(props) {
 export async function unmount() {
   ReactDOM.unmountComponentAtNode(document.getElementById('reactRoot'));
 }
-
-

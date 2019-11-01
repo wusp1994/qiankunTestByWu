@@ -5,8 +5,9 @@
         <ol>
           <li><a @click="goto('react app', '/react')">react16 + antd3</a></li>
           <li><a @click="goto('react15 app', '/15react15')">react15 + antd2</a></li>
-          <li><a @click="goto('vue app', '/vue')">vue2 + element2</a></li>
-          <li><a @click="goto('wu_vue app', '/wu_vue')">vue2 + element2</a></li>
+          <li><a @click="goto('vue app', '/vue')">vue2 + element2 </a></li>
+          <li><a @click="goto('wu_vue app', '/wu_vue')">vue2 + element2 (by wu copy examples)</a></li>
+          <li><a @click="goto('microvue app', '/microvue')">microvue2 (by wu vuecli)</a></li>
         </ol>
       </nav>
     </header>
@@ -30,7 +31,7 @@
 	};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .header {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 

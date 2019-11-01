@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 let instance = null;
 
@@ -18,11 +18,9 @@ export async function mount(props) {
     store,
     render: h => h(App)
   }).$mount('#app')
-  
 }
 
 export async function unmount() {
   instance.$destroy();
   instance = null;
 }
-
