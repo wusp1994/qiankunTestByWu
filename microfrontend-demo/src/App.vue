@@ -1,12 +1,36 @@
 <template>
-  <div id="app">
+  <div id="root">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+        <nav>
+            <ol>
+                <li><a @click="goto('vue sub-app1','/sub-app1')">应用1</a></li>
+                <li><a @click="goto('vue sub-app2','/sub-app2')">应用2</a></li>
+            </ol>
+        </nav>
     </div>
-    <router-view/>
+      <div v-if="loading">loading</div>
+      <div id="router-view" v-html="content"></div>
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'framework',
+    props: {
+      loading: Boolean,
+      content: String,
+    },
+    methods: {
+      // goto(title, href) {
+      //   this.$router.push(href)
+      // },
+      goto(title, href) {
+        console.log("title",title,"href",href)
+        window.history.pushState({}, title, href);
+      },
+    },
+  };
+</script>
 
 <style lang="scss">
 #app {
@@ -19,7 +43,6 @@
 
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;

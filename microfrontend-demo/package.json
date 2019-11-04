@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "scripts": {
     "start": "concurrently \"npm run start:main\" \"npm run start:sub-app1\" \"npm run start:sub-app2\"",
-    "install": "concurrently npm i && cd ./sub-app1 && npm i && cd ./sub-app2 && npm i",
+    "install:all": "concurrently \"npm run install:sub-app1\" \"npm run install:sub-app2\" \"npm install\"",
     "start:main": "npm run serve",
     "start:sub-app1": "cd sub-app1 && npm run serve",
     "start:sub-app2": "cd sub-app2 && npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "install:sub-app1": "cd sub-app1 && npm install",
+    "install:sub-app2": "cd sub-app2 && npm install",
+    "build": "father-build",
+    "serve": "vue-cli-service serve"
   },
   "dependencies": {
+    "concurrently": "^5.0.0",
     "core-js": "^3.3.2",
+    "isomorphic-fetch": "^2.2.1",
     "qiankun": "^1.2.3",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",

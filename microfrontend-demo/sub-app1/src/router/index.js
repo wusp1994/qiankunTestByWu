@@ -4,14 +4,16 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+const baseUrl = '/sub-app1'
+
 const routes = [
   {
-    path: '/',
+    path: baseUrl + '/',
     name: 'home',
     component: Home
   },
   {
-    path: '/about',
+    path: baseUrl + '/about',
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -22,7 +24,6 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
 
