@@ -5,6 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+let instance = null;
+
 export async function bootstrap() {
   console.log('react app bootstraped');
 }
