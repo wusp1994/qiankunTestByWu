@@ -99,6 +99,7 @@ export function registerMicroApps<T extends object = {}>(
 
         // 获取入口 html 模板及脚本加载器
         const { template: appContent, execScripts } = await importEntry(entry, { fetch });
+
         // as single-spa load and bootstrap new app parallel with other apps unmounting
         // (see https://github.com/CanopyTax/single-spa/blob/master/src/navigation/reroute.js#L74)
         // we need wait to load the app until all apps are finishing unmount in singular mode
@@ -159,6 +160,10 @@ export function registerMicroApps<T extends object = {}>(
             unmountSandbox,
             async () => execHooksChain(toArray(afterUnmount), app),
             async () => {
+              // remove the app content after unmount
+              render({ appContent: '', loading: false });
+            },
+            async () => {
               if ((await validateSingularMode(singularMode, app)) && prevAppUnmountedDeferred) {
                 prevAppUnmountedDeferred.resolve();
               }
@@ -174,6 +179,7 @@ export function registerMicroApps<T extends object = {}>(
 }
 
 export * from './effects';
+export * from './interfaces';
 
 export function start(opts: StartOpts = {}) {
   const { prefetch = true, jsSandbox = true, singular = true, fetch } = opts;

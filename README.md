@@ -89,7 +89,7 @@ While you wanna build a sub app to integrate to qiankun, pls make sure your bund
 
 ```js
 output: {
-  library: packageName,
+  library: `${packageName}-[name]`,
   libraryTarget: 'umd',
   jsonpFunction: `webpackJsonp_${packageName}`,
 }
@@ -164,8 +164,17 @@ function registerMicroApps<T extends object = {}>(
 ### start
 
 ```typescript
-function start({ prefetch: boolean, jsSandbox: boolean, singular: boolean, fetch?: typeof fetch }): void;
+function start(options: Options): void;
 ```
+
+Options
+
+| param | description | default |
+| --- | --- | --- |
+| prefetch | Whether to prefetch assets of sub apps after first sub app mounted | true |
+| jsSandbox | While sandbox enabled, we could guarantee that sub apps is isolated with each others | true |
+| singular | Only one sub app display at one runtime, that means a sub app will wait to mount until the before one unmounted | true |
+| fetch | Set a cuntom fetch function | `window.fetch` |
 
 ### setDefaultMountApp
 

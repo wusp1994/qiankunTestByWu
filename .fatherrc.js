@@ -6,13 +6,10 @@ export default {
   disableTypeCheck: true,
   runtimeHelpers: true,
   extraBabelPlugins: [
-    [
-      'babel-plugin-import',
-      {
-        libraryName: 'lodash',
-        libraryDirectory: '',
-        camel2DashComponentName: false,
-      },
-    ],
+    ['babel-plugin-import', {
+      libraryName: 'lodash',
+      libraryDirectory: '',
+      camel2DashComponentName: false,
+    }],
   ],
 };

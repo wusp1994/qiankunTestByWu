@@ -1,4 +1,4 @@
-// / <reference path="custom-typings.d.ts" />
+/// <reference path="custom-typings.d.ts" />
 
 type RequestIdleCallbackHandle = any;
 type RequestIdleCallbackOptions = {
