@@ -1,18 +1,12 @@
 {
-  "name": "microfrontend-demo",
+  "name": "sub-app1",
   "version": "0.1.0",
   "scripts": {
-    "start": "concurrently \"npm run start:main\" \"npm run start:sub-app1\" \"npm run start:sub-app2\"",
-    "install": "concurrently npm i && cd ./sub-app1 && npm i && cd ./sub-app2 && npm i",
-    "start:main": "npm run serve",
-    "start:sub-app1": "cd sub-app1 && npm run serve",
-    "start:sub-app2": "cd sub-app2 && npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.3.2",
-    "qiankun": "^1.2.3",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
     "vuex": "^3.0.1"
