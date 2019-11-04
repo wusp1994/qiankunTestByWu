@@ -8,7 +8,7 @@
             </ol>
         </nav>
     </div>
-      <div v-if="loading">loading</div>
+      <!--<div v-if="loading">loading</div>-->
       <div id="router-view" v-html="content"></div>
   </div>
 </template>
@@ -17,7 +17,7 @@
   export default {
     name: 'framework',
     props: {
-      loading: Boolean,
+      // loading: Boolean,
       content: String,
     },
     methods: {
@@ -44,6 +44,7 @@
 #nav {
   padding: 30px;
   a {
+      cursor: pointer;
     font-weight: bold;
     color: #2c3e50;
 
