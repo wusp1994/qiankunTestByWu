@@ -15,7 +15,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: '/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   // build: {
@@ -50,6 +50,7 @@ module.exports = {
       }
     },
     output: {
+      //把子应用打包成 umd 库格式
       library: '[name]',
       filename: '[name].js',
       libraryTarget: 'umd',
