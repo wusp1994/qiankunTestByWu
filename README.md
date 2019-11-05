@@ -1,3 +1,4 @@
+node.js v8.11.4
 1104，主应用采用vue-cli脚手架，重新创建新的 demo
 
 #### master分支说明
@@ -9,6 +10,10 @@
 #### testSubAppComponents分支说明
 测试，解决 子应用组件问题
 
+#### 待解决问题项
+1，css污染问题.
+	scoped
+	
 
 ## 拉取远程分支到本地
 ```sh

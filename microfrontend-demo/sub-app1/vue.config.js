@@ -15,7 +15,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: './',
+  publicPath:`//localhost:${port}`,
   outputDir: 'dist',
   assetsDir: 'static',
   // build: {
@@ -54,7 +54,7 @@ module.exports = {
       library: '[name]',
       filename: '[name].js',
       libraryTarget: 'umd',
-      globalObject: 'this'
+      globalObject: 'this',
     }
   },
 };

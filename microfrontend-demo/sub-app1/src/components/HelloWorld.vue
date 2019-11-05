@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello1">
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.hello1{
+    h1{
+        color: aqua;
+    }
+}
 h3 {
   margin: 40px 0 0;
 }

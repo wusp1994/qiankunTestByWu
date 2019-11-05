@@ -85,7 +85,8 @@ setDefaultMountApp('/sub-app1');
 runAfterFirstMounted(() => console.info('first app mounted'));
 
 //启动主应用
-start({ prefetch: true, fetch: request });
+start();
+// start({ prefetch: true, fetch: request });
 
 // new Vue({
 //   router,
