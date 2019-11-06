@@ -4,12 +4,15 @@
   "scripts": {
     "start": "concurrently \"npm run start:main\" \"npm run start:sub-app1\" \"npm run start:sub-app2\"",
     "install:all": "concurrently \"npm run install:sub-app1\" \"npm run install:sub-app2\" \"npm install\"",
+    "build": "concurrently \"npm run build:main\" \"npm run build:sub-app1\" \"npm run build:sub-app2\"",
     "start:main": "npm run serve",
     "start:sub-app1": "cd sub-app1 && npm run serve",
     "start:sub-app2": "cd sub-app2 && npm run serve",
     "install:sub-app1": "cd sub-app1 && npm install",
     "install:sub-app2": "cd sub-app2 && npm install",
-    "build": "father-build",
+    "build:main": "vue-cli-service build",
+    "build:sub-app1": "cd sub-app1 && npm run build",
+    "build:sub-app2": "cd sub-app2 && npm run build",
     "serve": "vue-cli-service serve"
   },
   "dependencies": {

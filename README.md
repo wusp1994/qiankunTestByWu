@@ -22,7 +22,12 @@ node.js v8.11.4
 	scoped（暂时解决方案）
 2，JS变量隔离（待验证, qiankun已有，使用JS Sandbox）
 3，子应用通信（待验证）
+    使用本地存储，localStorage
+
 4，部署（待验证）
+    -子应用部署可直接沿用以前的发布部署流程，没有什么要特殊处理的
+    https://github.com/umijs/qiankun/issues/64  #[Bug]vue-cli3生产部署时发现的问题,并附带临时解决方法 #64
+    -部署跨域，nginx 配置
 
 	
 
