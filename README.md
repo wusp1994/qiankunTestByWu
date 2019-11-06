@@ -6,7 +6,11 @@ node.js v8.11.4
 2，主应用改造为webpack vue 应用  
 3，主应用 路由切换子应用  
 4，子应用加载 qiankun 的生命周期  
-5，子应用内部切换路由  
+5，子应用内部切换路由
+6，部署
+    -子应用部署可直接沿用以前的发布部署流程，没有什么要特殊处理的
+    https://github.com/umijs/qiankun/issues/64  #[Bug]vue-cli3生产部署时发现的问题,并附带临时解决方法 #64
+    -部署跨域，nginx 配置
 
 #### master分支说明
 主分支，各个分支问题解决合并到此分支
@@ -24,10 +28,7 @@ node.js v8.11.4
 3，子应用通信（待验证）
     使用本地存储，localStorage
 
-4，部署（待验证）
-    -子应用部署可直接沿用以前的发布部署流程，没有什么要特殊处理的
-    https://github.com/umijs/qiankun/issues/64  #[Bug]vue-cli3生产部署时发现的问题,并附带临时解决方法 #64
-    -部署跨域，nginx 配置
+
 
 	
 
