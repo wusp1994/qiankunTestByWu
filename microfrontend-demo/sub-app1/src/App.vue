@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      sub-app1
-      <router-link to="/sub-app1">sub-app1 Home</router-link> |
-      <router-link to="/sub-app1/about">sub-app1 About</router-link>
+      <h1>我是子应用一，sub-app1</h1>
+      <router-link to="/sub-app1">子应用一:首页</router-link> |
+      <router-link to="/sub-app1/about">子应用一:about页面</router-link>
     </div>
     <router-view/>
   </div>

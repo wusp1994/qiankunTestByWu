@@ -3,8 +3,8 @@
     <div id="nav">
         <nav>
             <ol>
-                <li><a @click="goto('vue sub-app1','/sub-app1')">应用1</a></li>
-                <li><a @click="goto('vue sub-app2','/sub-app2')">应用2</a></li>
+                <li><a @click="goto('vue sub-app1','/sub-app1')">子应用一</a></li>
+                <li><a @click="goto('vue sub-app2','/sub-app2')">子应用二</a></li>
             </ol>
         </nav>
     </div>
