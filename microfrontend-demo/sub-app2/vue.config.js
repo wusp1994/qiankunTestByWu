@@ -56,10 +56,10 @@ module.exports = {
       globalObject: 'this'
     }
   },
-  chainWebpack: config => {
-    config.plugin("html").tap(args => {
-      args[0].minify = false;
-      return args;
-    });
-  }
+  // chainWebpack: config => {
+  //   config.plugin("html").tap(args => {
+  //     args[0].minify = false;
+  //     return args;
+  //   });
+  // }
 };
