@@ -55,7 +55,7 @@ registerMicroApps(
   [
     { name: 'vue sub-app1', entry: '//localhost:7100', render, activeRule: genActiveRule('/sub-app1') },
     { name: 'vue sub-app2', entry: '//localhost:7101', render, activeRule: genActiveRule('/sub-app2') },
-    { name: 'vue admin', entry: '//localhost:9428', render, activeRule: genActiveRule('/admin') },
+    // { name: 'vue admin', entry: '//localhost:9428', render, activeRule: genActiveRule('/admin') },
   ],
   {
     beforeLoad: [
@@ -80,7 +80,7 @@ registerMicroApps(
 );
 
 //设置默认加载的应用
-setDefaultMountApp('/admin');
+setDefaultMountApp('/sub-app1');
 
 //第一个应用构建完成后执行
 runAfterFirstMounted(() => console.info('first app mounted'));
