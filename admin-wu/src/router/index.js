@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import routes from './routers'
 import menus from './menus'
-let allMenus = routes.concat(menus)
+import childApps from './childApps'
+let allMenus = routes.concat(menus,childApps)
 import store from '@/store'
 // import iView from 'iview'
 import { setToken, getToken, canTurnTo, setTitle } from '@/libs/util'
@@ -14,7 +15,8 @@ const { homeName } = config
 Vue.use(Router)
 const router = new Router({
     routes:allMenus,
-    mode: 'history'
+    mode: 'history',
+    base: process.env.BASE_URL,
 })
 const LOGIN_PAGE_NAME = 'login'
 
@@ -26,10 +28,22 @@ const LOGIN_PAGE_NAME = 'login'
 //   else next({ replace: true, name: 'error_401' }) // 无权限，重定向到401页面
 // }
 
+//路由白名单之：子应用路径
+const subApp_ROUTE = ['/sub-app1']
+
+
 router.beforeEach((to, from, next) => {
   // iView.LoadingBar.start()
+  const path = to.path;
   const token = getToken()
-  if (!token && to.name !== LOGIN_PAGE_NAME) {
+  console.log(to,"=====路由对象")
+  // if(subApp_ROUTE){
+  //   next();
+  // }
+  if(token && to.name === undefined){
+    //已登录，子页面以及未知页面
+    next() // 跳转
+  } else if (!token && to.name !== LOGIN_PAGE_NAME) {
     // 未登录且要跳转的页面不是登录页
     next({
       name: LOGIN_PAGE_NAME // 跳转到登录页

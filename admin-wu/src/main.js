@@ -53,7 +53,7 @@ function render({ appContent, loading }) {
         return h(App, {
           props: {
             content: this.content,
-            loading: this.loading,
+            // loading: this.loading,
           },
         });
       },
@@ -107,7 +107,7 @@ registerMicroApps(
 );
 
 //设置默认加载的应用
-setDefaultMountApp('/sub-app1');
+setDefaultMountApp('/');
 
 //第一个应用构建完成后执行
 runAfterFirstMounted(() => console.info('first app mounted'));

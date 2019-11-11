@@ -9,7 +9,7 @@
         </nav>
     </div>
       <!--<div v-if="loading">loading</div>-->
-      <div id="router-view" v-html="content"></div>
+          <div id="router-view" v-html="content"></div>
   </div>
 </template>
 

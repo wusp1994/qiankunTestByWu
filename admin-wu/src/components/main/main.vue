@@ -1,62 +1,57 @@
 <template>
-  <Layout class="main" style="height: 100%">
-      <!--头部-->
-      <Header class="header" theme="dark" width="auto" style="height: 54px;background-color: #0052a4;">
-          <div class="logoBox">
-              <img :src="logoImg" width="44px" alt="">
-              <span>SGM智能软件管理平台(ISMS-V1.2)</span>
-          </div>
-      </Header>
-      <Layout>
-          <!--hide-trigger 隐藏默认触发器。 collapsible 是否可收起，collapsed-width收缩宽度，设置为 0 会出现特殊 （触发器）trigger-->
-          <!--左侧导航-->
-          <Sider hide-trigger
-                 collapsible
-                 :width="168"
-                 collapsed-width="64"
-                 :style="{'overflow': 'hidden'}"
-                 class="left-sider" >
-              <SideMenu
-                      ref="sideMenu"
-                      :active-name="$route.name"
-                      :collapsed="collapsed"
-                      :accordion="accordion"
-                      @on-select="turnToPage"
-                      :menu-list="menuList"
-              ></SideMenu>
-          </Sider>
-          <!--内容区域-->
-          <Content class="main-content-con">
-              <Layout class="main-layout-con">
-                  <!--面包屑导航-->
-                  <div class="bread-crumb-wrapper">
-                      <Breadcrumb :style="{fontSize:'14px'}">
-                          <BreadcrumbItem
-                              v-for="item in breadCrumbList"
-                              :to="item.to"
-                              :key="`bread-crumb-${item.name}`"
-                          >
-                              <common-icon style="margin-right: 4px;" :type="item.icon || ''"/>
-                              {{showTitle(item)}}
-                          </BreadcrumbItem>
-                          <!--<BreadcrumbItem to="/">Home</BreadcrumbItem>-->
-                          <!--<BreadcrumbItem to="/components/breadcrumb">Components</BreadcrumbItem>-->
-                          <!--<BreadcrumbItem>Breadcrumb</BreadcrumbItem>-->
-                      </Breadcrumb>
-                  </div>
-                  <Content class="content-wrapper">
-                      <!--keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态（缓存），或避免重新渲染。-->
-                      <!--props-->
-                          <!--include - 字符串或正则表达，只有匹配的组件会被缓存-->
-                          <!--exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存-->
-                      <!--<keep-alive :include="cacheList">-->
-                      <router-view/>
-                      <!--</keep-alive>-->
-                  </Content>
-              </Layout>
-          </Content>
-      </Layout>
-  </Layout>
+    <Layout class="main" style="height: 100%">
+        <!--头部-->
+        <Header class="header" theme="dark" width="auto" style="height: 54px;background-color: #0052a4;">
+            <div class="logoBox">
+                <img :src="logoImg" width="44px" alt="">
+                <span>SGM智能软件管理平台(ISMS-V1.2)</span>
+            </div>
+        </Header>
+        <Layout>
+            <!--hide-trigger 隐藏默认触发器。 collapsible 是否可收起，collapsed-width收缩宽度，设置为 0 会出现特殊 （触发器）trigger-->
+            <!--左侧导航-->
+            <Sider hide-trigger
+                   collapsible
+                   :width="168"
+                   collapsed-width="64"
+                   :style="{'overflow': 'hidden'}"
+                   class="left-sider" >
+                <SideMenu
+                        ref="sideMenu"
+                        :active-name="$route.name"
+                        :collapsed="collapsed"
+                        :accordion="accordion"
+                        @on-select="turnToPage"
+                        :menu-list="menuList"
+                ></SideMenu>
+            </Sider>
+            <!--内容区域-->
+            <Content class="main-content-con">
+                <Layout class="main-layout-con">
+                    <!--面包屑导航-->
+                    <div class="bread-crumb-wrapper">
+                        <Breadcrumb :style="{fontSize:'14px'}">
+                            <BreadcrumbItem
+                                    v-for="item in breadCrumbList"
+                                    :to="item.to"
+                                    :key="`bread-crumb-${item.name}`"
+                            >
+                                <common-icon style="margin-right: 4px;" :type="item.icon || ''"/>
+                                {{showTitle(item)}}
+                            </BreadcrumbItem>
+                            <!--<BreadcrumbItem to="/">Home</BreadcrumbItem>-->
+                            <!--<BreadcrumbItem to="/components/breadcrumb">Components</BreadcrumbItem>-->
+                            <!--<BreadcrumbItem>Breadcrumb</BreadcrumbItem>-->
+                        </Breadcrumb>
+                    </div>
+                    <Content class="content-wrapper">
+                        <router-view/>
+                        <div id="router-view" v-html="content"></div>
+                    </Content>
+                </Layout>
+            </Content>
+        </Layout>
+    </Layout>
 </template>
 
 <script>
@@ -68,12 +63,21 @@
     import routers from '@/router/routers'
 
     export default {
-    data(){
+      data(){
         return {
           collapsed: false, // 默认是否左右 折叠菜单
           accordion: true, //是否开启手风琴模式，开启后，最多只能打开一个子菜单
-          logoImg
+          logoImg,
         }
+    },
+    props: {
+        show: {
+          type:Boolean,
+          default(){
+            return true;
+          }
+        },
+        content: String,
     },
     components:{
         SideMenu,
@@ -133,10 +137,10 @@
         /**
          * @description 路由变化时，面包屑变化和左边导航 展开变化
          */
-        '$route'(newRoute){
-            this.setBreadCrumb(newRoute);
-            this.$refs.sideMenu.updateOpenName(newRoute.name)
-        }
+        // '$route'(newRoute){
+        //     this.setBreadCrumb(newRoute);
+        //     this.$refs.sideMenu.updateOpenName(newRoute.name)
+        // }
     },
     /**
      * 在el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：
@@ -149,6 +153,7 @@
         //set 首页路由对象
         this.setHomeRoute(routers);
         this.setBreadCrumb(this.$route);
+        console.log(this.show,"====测试有没有app.vue的 实例，show")
     }
   }
 
