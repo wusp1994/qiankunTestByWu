@@ -1,0 +1,76 @@
+.main{
+  //头部
+  .header{
+    position: relative;
+      .logoBox{
+        position: absolute;
+        max-width: 440px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 14px;
+        span{
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: 700;
+          margin-left: 5px;
+        }
+      }
+  }
+  .left-sider{
+    .ivu-layout-sider-children{
+      overflow-y: scroll;
+      margin-right: -18px;
+    }
+    .ivu-menu-item > i{
+      margin-right: 12px !important;
+    }
+    .ivu-menu-submenu > .ivu-menu > .ivu-menu-item > i {
+      margin-right: 8px !important;
+    }
+    .collased-menu-dropdown{
+      width: 100%;
+      margin: 0;
+      line-height: normal;
+      padding: 7px 0 6px 16px;
+      clear: both;
+      font-size: 12px !important;
+      white-space: nowrap;
+      list-style: none;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+      &:hover{
+        background: rgba(100, 100, 100, 0.1);
+      }
+      & * {
+        color: #515a6e;
+      }
+      .ivu-menu-item > i{
+        margin-right: 12px !important;
+      }
+      .ivu-menu-submenu > .ivu-menu > .ivu-menu-item > i {
+        margin-right: 8px !important;
+      }
+    }
+    .ivu-select-dropdown.ivu-dropdown-transfer{
+      max-height: 400px;
+    }
+  }
+  //主要区域
+  .main-content-con{
+    //面包屑导航
+    .bread-crumb-wrapper{
+      padding: 6px 20px;
+    }
+    //内容区域
+    .content-wrapper{
+      padding: 18px;
+      height: calc(100% - 80px);
+      overflow: auto;
+      background-color: #E7EDF3;
+    }
+  }
+
+}
+

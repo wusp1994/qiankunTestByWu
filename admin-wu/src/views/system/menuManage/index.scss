@@ -1,0 +1,43 @@
+$listW:30%;
+.card{
+  padding: 20px 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+.menuManage{
+  .main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .list{
+      width: $listW;
+      .btn{
+        margin-top: 20px;
+      }
+    }
+    .detail{
+      height: auto;
+      width: 100% - ($listW + 2%);
+      .tit{
+        font-size: 20px;
+        font-weight: bolder;
+        margin-bottom: 10px;
+      }
+      .item{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        p{
+          width: 68px;
+        }
+        .inputBox{
+          width: 400px;
+        }
+        &.btn{
+          margin-top: 20px;
+        }
+      }
+
+    }
+  }
+}

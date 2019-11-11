@@ -25,6 +25,8 @@ sub-app2 为子应用
 9，css污染问题（只存在于子应用和主应用，暂时解决）
   	1，scoped（暂时解决方案：主应用的样式使用特殊class或者scoped）
   	2，主应用可以通过设置 prefixCls 的方式避免冲突
+10,支持单个子应用嵌套，可以在B应用 unmount 时手动卸载C应用.但是不支持多个子应用嵌套，
+11，利用Prefix的方式来避免CSS、Browser API、Web Event、Cookies或Local Storage的冲突。
 
 
 #### master分支说明
