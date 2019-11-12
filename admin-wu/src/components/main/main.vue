@@ -46,7 +46,6 @@
                     </div>
                     <Content class="content-wrapper">
                         <router-view/>
-                        <div id="router-view" v-html="content"></div>
                     </Content>
                 </Layout>
             </Content>
@@ -77,7 +76,6 @@
             return true;
           }
         },
-        content: String,
     },
     components:{
         SideMenu,

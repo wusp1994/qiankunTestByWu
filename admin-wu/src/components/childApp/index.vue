@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" class="childApp">
         <!--<router-view/>-->
         <div id="router-view" v-html="content"></div>
     </div>
