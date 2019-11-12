@@ -9,9 +9,18 @@ import {registerMicroApps,runAfterFirstMounted, setDefaultMountApp, start} from 
 import fetch from 'isomorphic-fetch';
 let app = null;
 
+let count = 0;
+let count1 = 0;
 function render({ appContent, loading }) {
+  if(appContent === undefined){
+    count1++
+    console.log("为空执行了",count1)
+  }else{
+    count++
+    console.log("不为空执行了",count)
+  }
   /*examples for vue*/
-  if (!app) {
+  if (!app && appContent !== undefined) {
     app = new Vue({
       el: '#container',
       router,
@@ -31,7 +40,7 @@ function render({ appContent, loading }) {
         });
       },
     });
-  } else {
+  } else if(app == null && appContent !== undefined){
     app.content = appContent;
     app.loading = loading;
   }

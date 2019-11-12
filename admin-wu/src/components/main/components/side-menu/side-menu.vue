@@ -123,8 +123,8 @@
             }
         },
         mounted(){
-            console.log(this.menuList,"=========菜单列表")
-            console.log(this.openedNames,"=========openedNames")
+            // console.log(this.menuList,"=========菜单列表")
+            // console.log(this.openedNames,"=========openedNames")
 
             this.openedNames =  getUnion(this.openedNames, this.getOpenedNamesByActiveName(name))
         },
@@ -158,7 +158,7 @@
              * @returns {string[]}
              */
             getOpenedNamesByActiveName(name){
-                console.log(this.$route.matched.map(item => item.name),"路由记录")//["system", "userManage"]
+                // console.log(this.$route.matched.map(item => item.name),"路由记录")//["system", "userManage"]
                 //matched:一个数组，包含当前路由的所有嵌套路径片段的路由记录 。
                 return this.$route.matched.map(item => item.name).filter(item=>item !== name);
             },

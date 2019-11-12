@@ -20,7 +20,6 @@
     created(){
       this.content = this.$EventBus.$data.content;
       console.log(this.$EventBus,"=======视图组件应用的 $EventBus")
-      debugger
     }
   }
 </script>

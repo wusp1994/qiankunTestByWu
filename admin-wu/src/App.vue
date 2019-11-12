@@ -1,25 +1,26 @@
 <template>
     <div id="root" class="mainApp">
         <router-view/>
+        <!--<div id="app"></div>-->
     </div>
 </template>
 
 <script>
   export default {
     name: 'framework',
-    props: {
-      content: String,
-    },
+    // props: {
+    //   content: String,
+    // },
     methods: {
       goto(title, href) {
         console.log("title",title,"href",href)
         window.history.pushState({}, title, href);
       },
     },
-    created(){
-      console.log(this.content,"props by app.vue")
-      this.$EventBus.$data.content = this.content;
-      // console.log(this.$EventBus,"props by app.vue")
+    mounted(){
+      // console.log(this.content,"props by app.vue")
+      // this.$EventBus.$data.content = this.content;
+      // console.log(this.$EventBus,"$EventBus by app.vue")
     }
   };
 </script>

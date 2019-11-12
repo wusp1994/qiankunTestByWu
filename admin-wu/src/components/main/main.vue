@@ -96,7 +96,7 @@
           return list
         },
         breadCrumbList () {
-            console.log(this.$store.state.app.breadCrumbList,"=====面包屑路由列表")
+            // console.log(this.$store.state.app.breadCrumbList,"=====面包屑路由列表")
             return this.$store.state.app.breadCrumbList
         }
     },

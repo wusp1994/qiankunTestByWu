@@ -40,7 +40,16 @@ import {registerMicroApps,runAfterFirstMounted, setDefaultMountApp, start} from 
 import fetch from 'isomorphic-fetch';
 let app = null;
 
+let count1 = 0;
+let count = 0;
 function render({ appContent, loading }) {
+  if(appContent === undefined){
+    count1++
+    console.log("为空执行了",count1)
+  }else{
+    count++
+    console.log("不为空执行了",count)
+  }
   /*examples for vue*/
   if (!app) {
     app = new Vue({
@@ -56,14 +65,17 @@ function render({ appContent, loading }) {
       },
       render(h) {
         return h(App, {
-          props: {
-            content: this.content,
-            // loading: this.loading,
-          },
+          // props: {
+          //   content: this.content,
+          //   // loading: this.loading,
+          // },
         });
       },
     });
-  } else {
+    if(appContent !== undefined){
+      Vue.prototype.$EventBus.$data.content = appContent;
+    }
+  } else{
     app.content = appContent;
     app.loading = loading;
   }
@@ -112,7 +124,7 @@ registerMicroApps(
 );
 
 //设置默认加载的应用
-setDefaultMountApp('/');
+setDefaultMountApp('/home');
 
 //第一个应用构建完成后执行
 runAfterFirstMounted(() => console.info('first app mounted'));

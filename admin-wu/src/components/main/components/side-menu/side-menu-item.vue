@@ -79,7 +79,7 @@
             }
         },
         mounted(){
-            console.log(this.parentItem,"===========子菜单")
+            // console.log(this.parentItem,"===========子菜单")
         },
         methods: {
 

@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
   // iView.LoadingBar.start()
   const path = to.path;
   const token = getToken()
-  console.log(to,"=====路由对象")
+  // console.log(to,"=====路由对象")
   // if(subApp_ROUTE){
   //   next();
   // }
