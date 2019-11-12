@@ -42,6 +42,15 @@ export default [
                 },
                 component: () => import('@/views/system/userManage/index.vue')
             },
+            {
+              path: '/sub-app1',
+              name: 'subApp1',
+              meta: {
+                icon: 'md-menu',
+                title: '子应用1'
+              },
+              component: () => import('@/views/system/testChild/index.vue')
+            },
         ]
     },
     // {

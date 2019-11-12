@@ -30,6 +30,11 @@ Vue.config.productionTip = false
  */
 Vue.prototype.$config = config
 
+/**
+ * 中央事件总线EventBus,用于通信。
+ * 在Vue中可以使用 EventBus 来作为沟通桥梁的概念，就像是所有组件共用相同的事件中心，可以向该中心注册发送事件或接收事件
+ */
+Vue.prototype.$EventBus = new Vue()
 
 import {registerMicroApps,runAfterFirstMounted, setDefaultMountApp, start} from 'qiankun';
 import fetch from 'isomorphic-fetch';

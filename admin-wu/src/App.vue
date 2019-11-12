@@ -1,18 +1,13 @@
 <template>
     <div id="root" class="mainApp">
         <router-view/>
-        <!--主应用-->
-        <!--<div id="router-view" v-html="content"></div>-->
     </div>
 </template>
 
 <script>
-
-
   export default {
     name: 'framework',
     props: {
-      // loading: Boolean,
       content: String,
     },
     methods: {
@@ -21,8 +16,10 @@
         window.history.pushState({}, title, href);
       },
     },
-    mounted(){
+    created(){
       console.log(this.content,"props by app.vue")
+      this.$EventBus.$data.content = this.content;
+      // console.log(this.$EventBus,"props by app.vue")
     }
   };
 </script>

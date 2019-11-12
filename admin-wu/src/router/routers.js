@@ -44,7 +44,7 @@ export default [
     {
         path: '/',
         name: '_home',
-        // redirect: '/home',
+        redirect: '/home',
         component: Main,
         meta: {
             hideInMenu: true,
