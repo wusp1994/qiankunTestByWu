@@ -151,7 +151,7 @@
         //set 首页路由对象
         this.setHomeRoute(routers);
         this.setBreadCrumb(this.$route);
-        console.log(this.show,"====测试有没有app.vue的 实例，show")
+        // console.log(this.show,"====测试有没有app.vue的 实例，show")
     }
   }
 

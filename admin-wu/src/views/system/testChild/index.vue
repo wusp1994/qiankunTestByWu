@@ -25,7 +25,7 @@
     }),
     created(){
       // console.log(this.$store.state.microApps.microAppHtml,"child component microAppHtml")
-      console.log(this.microAppHtml,"child component microAppHtml")
+      // console.log(this.microAppHtml,"child component microAppHtml")
       // debugger
     },
     methods:{

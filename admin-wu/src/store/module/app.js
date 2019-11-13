@@ -34,7 +34,7 @@ const closePage = (state, route) => {
  * @param permission
  */
 const filterMenu = (menu,permission) =>{
-    console.log(permission);//['菜单一览','菜单一览1','菜单一览3']
+    // console.log(permission);//['菜单一览','菜单一览1','菜单一览3']
     // debugger
   if(menu.children){
     //菜单存在 children
