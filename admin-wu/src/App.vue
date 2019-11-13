@@ -6,21 +6,33 @@
 </template>
 
 <script>
+
+  import { mapMutations } from 'vuex'
+
   export default {
     name: 'framework',
-    // props: {
-    //   content: String,
-    // },
+    props: {
+      content: String,
+      loading: Boolean,
+    },
     methods: {
+      ...mapMutations([
+        "setMicroAppHtml",
+        "setLoading"
+      ]),
       goto(title, href) {
         console.log("title",title,"href",href)
         window.history.pushState({}, title, href);
       },
     },
-    mounted(){
-      // console.log(this.content,"props by app.vue")
-      // this.$EventBus.$data.content = this.content;
-      // console.log(this.$EventBus,"$EventBus by app.vue")
+    watch:{
+      content(value,oldValue){
+        // debugger
+        this.setMicroAppHtml(value)
+      },
+      loading(value,oldValue) {
+        this.setLoading(value)
+      }
     }
   };
 </script>

@@ -88,13 +88,25 @@ registerMicroApps(
   },
 );
 
-//设置默认加载的应用
+/**
+ * @description 设置哪个子应用程序在主加载后默认处于活动状态
+ * @param defaultAppLink: string 跳转链接
+ */
 setDefaultMountApp('/sub-app1');
 
-//第一个应用构建完成后执行
+/**
+ * @description 第一个应用构建完成后执行
+ * @param 要执行的函数
+ */
 runAfterFirstMounted(() => console.info('first app mounted'));
 
-//启动主应用
+/**
+ * @description 启动主应用
+ * @param prefetch 是否在第一次安装子应用程序后预取子应用程序的资产,默认为 true
+ * @param jsSandbox 是否启用沙盒，当沙盒启用时，我们可以保证子应用程序是相互隔离的,默认为 true
+ * @param singular 是否在一个运行时只显示一个子应用程序，这意味着子应用程序将等待挂载，直到卸载之前,默认为 true
+ * @param fetch 设置一个fetch function,默认为 window.fetch
+ */
 start();
 // start({ prefetch: true, fetch: request });
 
