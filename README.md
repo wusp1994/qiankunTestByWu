@@ -2,6 +2,7 @@ node.js v12.13.0
 1104，主应用采用vue-cli脚手架，重新创建新的 demo
 
 目录下
+admin-wu 为主应用
 microfrontend-demo 为主应用
 sub-app1 为子应用
 sub-app2 为子应用
