@@ -45,7 +45,15 @@
                         </Breadcrumb>
                     </div>
                     <Content class="content-wrapper">
-                        <router-view/>
+                        <!--<router-view/>-->
+                        <template v-if="!isChildApp">
+                        <!--//不是子应用就调用路由-->
+                            <router-view/>
+                        </template>
+                        <template v-show="isChildApp">
+                            <!--//子应用就加载 content-->
+                            <div id="router-view" v-html="content"></div>
+                        </template>
                     </Content>
                 </Layout>
             </Content>
@@ -76,6 +84,13 @@
             return true;
           }
         },
+        isChildApp: {
+          type:Boolean,
+          default(){
+            return false;
+          }
+        },
+        content: String,
     },
     components:{
         SideMenu,

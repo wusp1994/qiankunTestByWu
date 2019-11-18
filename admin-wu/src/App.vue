@@ -1,19 +1,36 @@
 <template>
     <div id="root" class="mainApp">
-        <router-view/>
-        <!--<div id="app"></div>-->
+        <template v-if="!isChildApp">
+            <router-view/>
+        </template>
+        <template v-show="isChildApp" >
+            <wu-layoutMain :loading="loading" :isChildApp="isChildApp" :content="content"></wu-layoutMain>
+        </template>
+
     </div>
 </template>
 
 <script>
-
   import { mapMutations } from 'vuex'
+  import layoutMain from "@/components/main"
 
   export default {
     name: 'framework',
     props: {
       content: String,
       loading: Boolean,
+    },
+    components: {
+      'wu-layoutMain' : layoutMain,
+    },
+    computed: {
+      isChildApp() {
+        if(this.$route.path.match('sub-app')){
+          return true;
+        }else{
+          return false;
+        }
+      }
     },
     methods: {
       ...mapMutations([
@@ -23,6 +40,7 @@
       goto(title, href) {
         console.log("title",title,"href",href)
         window.history.pushState({}, title, href);
+        // this.$router.push(op.key)
       },
     },
     watch:{

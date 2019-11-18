@@ -49,7 +49,14 @@ export default [
                 icon: 'md-menu',
                 title: '子应用1'
               },
-              component: () => import('@/views/system/testChild/index.vue')
+            },
+            {
+              path: '/sub-app2',
+              name: 'subApp2',
+              meta: {
+                icon: 'md-menu',
+                title: '子应用2'
+              },
             },
         ]
     },

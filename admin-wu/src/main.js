@@ -43,17 +43,10 @@ let app = null;
 let count1 = 0;
 let count = 0;
 function render({ appContent, loading }) {
-  // if(appContent === undefined){
-  //   count1++
-  //   console.log("为空执行了",count1)
-  // }else{
-  //   count++
-  //   console.log("不为空执行了",count)
-  // }
   /*examples for vue*/
   if (!app) {
     app = new Vue({
-      // el: '#container',
+      el: '#container',
       router,
       store,
       i18n,
@@ -71,10 +64,7 @@ function render({ appContent, loading }) {
           },
         });
       },
-    }).$mount('#container');
-    // if(appContent !== undefined){
-    //   Vue.prototype.$EventBus.$data.content = appContent;
-    // }
+    });
   } else{
     app.content = appContent;
     app.loading = loading;
@@ -98,7 +88,7 @@ const request = url =>
 registerMicroApps([
     {
       name: 'vue sub-app1',
-      entry: '//localhost:7100',
+      entry: '//localhost:7100/sub.html',
       render,
       activeRule: genActiveRule('/sub-app1')
     },
@@ -124,6 +114,7 @@ registerMicroApps([
     afterUnmount: [
       app => {
         console.log('after unload', app);
+        app.render({appContent: '', loading: false});
       },
     ],
   },
@@ -152,11 +143,3 @@ runAfterFirstMounted(() => console.info('first app mounted'));
  * @param fetch 设置一个fetch function,默认为 window.fetch
  */
 start();
-
-
-// new Vue({
-//     router,
-//     store,
-//     i18n,
-//     render: h => h(App)
-// }).$mount('#app')

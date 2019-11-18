@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import routes from './routers'
 import menus from './menus'
 import childApps from './childApps'
-let allMenus = routes.concat(menus,childApps)
+let allMenus = routes.concat(menus)
 import store from '@/store'
 // import iView from 'iview'
 import { setToken, getToken, canTurnTo, setTitle } from '@/libs/util'

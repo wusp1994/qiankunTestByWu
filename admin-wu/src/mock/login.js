@@ -13,7 +13,7 @@ const USER_MAP = {
     // access: ['admin'],
     token: 'admin',
     avatar: 'https://avatars0.githubusercontent.com/u/20942571?s=460&v=4',
-    permission:['userManage','menuManage','菜单一览4',"subApp1"]
+    permission:['userManage','menuManage','菜单一览4',"subApp1","subApp2"]
   }
 }
 
