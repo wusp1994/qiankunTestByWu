@@ -28,6 +28,7 @@ sub-app2 为子应用
   	2，主应用可以通过设置 prefixCls 的方式避免冲突
 10,支持单个子应用嵌套，可以在B应用 unmount 时手动卸载C应用.但是不支持多个子应用嵌套，
 11，利用Prefix的方式来避免CSS、Browser API、Web Event、Cookies或Local Storage的冲突。
+12，你的子应用的容器是在主应用里动态生成的，需要确保子应用在 mount 前容器已经 ready
 
 
 #### master分支说明
