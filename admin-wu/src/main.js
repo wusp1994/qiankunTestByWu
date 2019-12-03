@@ -111,6 +111,11 @@ registerMicroApps([
         console.log('before mount', app);
       },
     ],
+    afterMount: [
+      app => {
+        console.log('after mount', app);
+      },
+    ],
     afterUnmount: [
       app => {
         console.log('after unload', app);

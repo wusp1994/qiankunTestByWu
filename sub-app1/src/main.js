@@ -18,6 +18,7 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('props from main framework', props);
+  
   instance = new Vue({
     router,
     store,
